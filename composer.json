@@ -3,6 +3,7 @@
     "description": "This is debug bar for tracking on your project",
     "type": "package",
     "license": "proprietary",
+    "homepage": "https://github.com/Yozko13/DebugBarTracking",
     "authors": [
         {
             "name": "Yozko13",
