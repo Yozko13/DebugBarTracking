@@ -1,0 +1,21 @@
+{
+    "name": "yozko13/debug-bar-tracking",
+    "description": "This is debug bar for tracking on your project",
+    "type": "package",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Yozko13",
+            "email": "yozko13@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "DebugBarTracking\\": "src/DebugBarTracking/"
+        }
+    }
+}
