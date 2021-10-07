@@ -1,13 +1,12 @@
 <?php
-namespace App\System\DebugBarTracking\SQL\Providers;
+namespace DebugBar\SQL\Providers;
 
-use App\System\DebugBarTracking\Interfaces\SqlProviderInterface;
-use Aura\Sql\ExtendedPdo;
+use DebugBar\Interfaces\SqlProviderInterface;
 
 class AuraSql implements SqlProviderInterface
 {
     /**
-     * @var ExtendedPdo $profiler
+     * @var $profiler
      */
     private $profiler;
 

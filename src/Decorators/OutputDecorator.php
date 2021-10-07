@@ -1,9 +1,9 @@
 <?php
 
-namespace App\System\DebugBarTracking\Decorators;
+namespace DebugBar\Decorators;
 
-use App\System\DebugBarTracking\Entities\DebugBarInformationHolderEntity;
-use App\System\DebugBarTracking\Enums\OutputDecoratorRenderTypes;
+use DebugBar\Entities\DebugBarInformationHolderEntity;
+use DebugBar\Enums\OutputDecoratorRenderTypes;
 
 class OutputDecorator extends OutputDecoratorRenderTypes
 {

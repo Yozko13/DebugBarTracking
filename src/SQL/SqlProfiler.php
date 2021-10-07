@@ -1,7 +1,7 @@
 <?php
-namespace App\System\DebugBarTracking\SQL;
+namespace DebugBar\SQL;
 
-use App\System\DebugBarTracking\Interfaces\SqlProviderInterface;
+use DebugBar\Interfaces\SqlProviderInterface;
 
 class SqlProfiler
 {

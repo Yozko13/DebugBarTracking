@@ -1,6 +1,6 @@
 <?php
 
-namespace App\System\DebugBarTracking\Entities;
+namespace DebugBar\Entities;
 
 class DebugBarInformationHolderEntity
 {

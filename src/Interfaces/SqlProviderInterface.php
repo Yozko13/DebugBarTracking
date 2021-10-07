@@ -1,5 +1,5 @@
 <?php
-namespace App\System\DebugBarTracking\Interfaces;
+namespace DebugBar\Interfaces;
 
 interface SqlProviderInterface
 {

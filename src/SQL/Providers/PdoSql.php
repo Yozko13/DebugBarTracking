@@ -1,9 +1,9 @@
 <?php
 
-namespace App\System\DebugBarTracking\SQL\Providers;
+namespace DebugBar\SQL\Providers;
 
 
-use App\System\DebugBarTracking\Interfaces\SqlProviderInterface;
+use DebugBar\Interfaces\SqlProviderInterface;
 
 class PdoSql implements SqlProviderInterface
 {

@@ -1,15 +1,14 @@
 <?php
 
-namespace App\System\DebugBarTracking;
+namespace DebugBar;
 
-use App\System\DebugBarTracking\Decorators\OutputDecorator;
-use App\System\DebugBarTracking\Entities\DebugBarInformationHolderEntity;
-use App\System\DebugBarTracking\Enums\OutputDecoratorRenderTypes;
-use App\System\DebugBarTracking\Enums\ProfilerTypes;
-use App\System\DebugBarTracking\SQL\Providers\AuraSql;
-use App\System\DebugBarTracking\SQL\Providers\PdoSql;
-use App\System\DebugBarTracking\SQL\SqlProfiler;
-use Aura\Sql\Exception;
+use DebugBar\Decorators\OutputDecorator;
+use DebugBar\Entities\DebugBarInformationHolderEntity;
+use DebugBar\Enums\OutputDecoratorRenderTypes;
+use DebugBar\Enums\ProfilerTypes;
+use DebugBar\SQL\Providers\AuraSql;
+use DebugBar\SQL\Providers\PdoSql;
+use DebugBar\SQL\SqlProfiler;
 
 final class DebugBarTracking
 {
@@ -144,7 +143,7 @@ final class DebugBarTracking
                 $provider = new PdoSql($profiler);
                 break;
             default:
-                throw new Exception('Invalid provider');
+                throw new \Exception('Invalid provider');
         }
 
         $this->profiler = new SqlProfiler($provider);
