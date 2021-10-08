@@ -4,10 +4,19 @@ namespace DebugBar\Enums;
 
 use MyCLabs\Enum\Enum;
 
+/**
+ * Class ProfilerTypes
+ */
 class ProfilerTypes extends Enum
 {
+    /**
+     * AURA SQL
+     */
     public const PROFILER_TYPE_AURASQL = 1;
-    public const PROFILER_TYPE_PDO     = 2;
+    /**
+     * PDO
+     */
+    public const PROFILER_TYPE_PDO = 2;
 
 
 }

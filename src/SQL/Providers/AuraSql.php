@@ -3,6 +3,9 @@ namespace DebugBar\SQL\Providers;
 
 use DebugBar\Interfaces\SqlProviderInterface;
 
+/**
+ * Class AuraSql
+ */
 class AuraSql implements SqlProviderInterface
 {
     /**
@@ -10,6 +13,9 @@ class AuraSql implements SqlProviderInterface
      */
     private $profiler;
 
+    /**
+     * @param $profiler
+     */
     public function __construct($profiler)
     {
         $profiler->setLogFormat("{function}---{duration}---{statement}---{backtrace}");

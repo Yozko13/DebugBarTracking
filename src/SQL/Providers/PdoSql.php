@@ -5,14 +5,18 @@ namespace DebugBar\SQL\Providers;
 
 use DebugBar\Interfaces\SqlProviderInterface;
 
+/**
+ * Class PdoSql
+ */
 class PdoSql implements SqlProviderInterface
 {
-    public function __construct($profiler)
-    {
-    }
+    /**
+     * @param $profiler
+     */
+    public function __construct($profiler){}
 
-    public function getProfileData()
-    {
-        // TODO: Implement getProfileData() method.
-    }
+    /**
+     * @return mixed|void
+     */
+    public function getProfileData(){}
 }

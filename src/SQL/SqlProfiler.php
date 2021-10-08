@@ -3,8 +3,14 @@ namespace DebugBar\SQL;
 
 use DebugBar\Interfaces\SqlProviderInterface;
 
+/**
+ * Class SqlProfiler
+ */
 class SqlProfiler
 {
+    /**
+     * @var \DebugBar\Interfaces\SqlProviderInterface
+     */
     private SqlProviderInterface $provider;
 
     /**

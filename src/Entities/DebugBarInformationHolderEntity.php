@@ -2,158 +2,208 @@
 
 namespace DebugBar\Entities;
 
+/**
+ * Class DebugBarInformationHolderEntity
+ */
 class DebugBarInformationHolderEntity
 {
-    private $url;
-    private $clientIP;
-    private $requestMethod;
-    private $requestPost;
-    private $requestGet;
-    private $sql;
-    private $user;
-    private $memory;
-    private $time;
+    /**
+     * @var string
+     */
+    private string $url;
+    /**
+     * @var array
+     */
+    private array $dispatch;
+    /**
+     * @var string
+     */
+    private string $clientIP;
+    /**
+     * @var string
+     */
+    private string $requestMethod;
+    /**
+     * @var array
+     */
+    private array $requestPost;
+    /**
+     * @var array
+     */
+    private array $requestGet;
+    /**
+     * @var array
+     */
+    private array $sql;
+    /**
+     * @var array
+     */
+    private array $user;
+    /**
+     * @var string
+     */
+    private string $memory;
+    /**
+     * @var string
+     */
+    private string $time;
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getUrl()
+    public function getUrl(): string
     {
         return $this->url;
     }
 
     /**
-     * @param mixed $url
+     * @param string $url
      */
-    public function setUrl($url): void
+    public function setUrl(string $url): void
     {
         $this->url = $url;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getClientIP()
+    public function getDispatch(): array
+    {
+        return $this->dispatch;
+    }
+
+    /**
+     * @param array $dispatch
+     */
+    public function setDispatch(array $dispatch): void
+    {
+        $this->dispatch = $dispatch;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClientIP(): string
     {
         return $this->clientIP;
     }
 
     /**
-     * @param mixed $clientIP
+     * @param string $clientIP
      */
-    public function setClientIP($clientIP): void
+    public function setClientIP(string $clientIP): void
     {
         $this->clientIP = $clientIP;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getRequestMethod()
+    public function getRequestMethod(): string
     {
         return $this->requestMethod;
     }
 
     /**
-     * @param mixed $requestMethod
+     * @param string $requestMethod
      */
-    public function setRequestMethod($requestMethod): void
+    public function setRequestMethod(string $requestMethod): void
     {
         $this->requestMethod = $requestMethod;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getRequestPost()
+    public function getRequestPost(): array
     {
         return $this->requestPost;
     }
 
     /**
-     * @param mixed $requestPost
+     * @param array $requestPost
      */
-    public function setRequestPost($requestPost): void
+    public function setRequestPost(array $requestPost): void
     {
         $this->requestPost = $requestPost;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getRequestGet()
+    public function getRequestGet(): array
     {
         return $this->requestGet;
     }
 
     /**
-     * @param mixed $requestGet
+     * @param array $requestGet
      */
-    public function setRequestGet($requestGet): void
+    public function setRequestGet(array $requestGet): void
     {
         $this->requestGet = $requestGet;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getSql()
+    public function getSql(): array
     {
         return $this->sql;
     }
 
     /**
-     * @param mixed $sql
+     * @param array $sql
      */
-    public function setSql($sql): void
+    public function setSql(array $sql): void
     {
         $this->sql = $sql;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    public function getUser()
+    public function getUser(): array
     {
         return $this->user;
     }
 
     /**
-     * @param mixed $user
+     * @param array $user
      */
-    public function setUser($user): void
+    public function setUser(array $user): void
     {
         $this->user = $user;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getMemory()
+    public function getMemory(): string
     {
         return $this->memory;
     }
 
     /**
-     * @param mixed $memory
+     * @param string $memory
      */
-    public function setMemory($memory): void
+    public function setMemory(string $memory): void
     {
         $this->memory = $memory;
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    public function getTime()
+    public function getTime(): string
     {
         return $this->time;
     }
 
     /**
-     * @param mixed $time
+     * @param string $time
      */
-    public function setTime($time): void
+    public function setTime(string $time): void
     {
         $this->time = $time;
     }

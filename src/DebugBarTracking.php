@@ -10,36 +10,56 @@ use DebugBar\SQL\Providers\AuraSql;
 use DebugBar\SQL\Providers\PdoSql;
 use DebugBar\SQL\SqlProfiler;
 
+/**
+ * Final class DebugBarTracking
+ */
 final class DebugBarTracking
 {
+    /**
+     * @var $instance
+     */
     private static $instance;
+    /**
+     * @var float|int
+     */
     private float $memoryStart;
+    /**
+     * @var float
+     */
     private float $timeStart;
+    /**
+     * @var array
+     */
+    private array $dispatch;
+
     /**
      * @var SqlProfiler $profiler
      */
-    private $profiler;
+    private SqlProfiler $profiler;
 
+    /**
+     * Construct
+     */
     private function __construct()
     {
         $this->timeStart   = microtime(true);
         $this->memoryStart = memory_get_usage();
     }
 
-    private function __clone()
-    {
-        // TODO: Implement __clone() method.
-    }
+    /**
+     * Make clone magic method private, so nobody can clone instance.
+     */
+    private function __clone() {}
 
-    private function __sleep()
-    {
-        // TODO: Implement __sleep() method.
-    }
+    /**
+     * Make sleep magic method private, so nobody can serialize instance.
+     */
+    private function __sleep() {}
 
-    private function __wakeup()
-    {
-        // TODO: Implement __wakeup() method.
-    }
+    /**
+     * Make wakeup magic method private, so nobody can unserializable instance.
+     */
+    private function __wakeup() {}
 
     /**
      * @return DebugBarTracking
@@ -60,6 +80,7 @@ final class DebugBarTracking
     {
         $debugBarHolderEntities = new DebugBarInformationHolderEntity();
         $debugBarHolderEntities->setUrl($this->getUrl());
+        $debugBarHolderEntities->setDispatch($this->getDispatchResult());
         $debugBarHolderEntities->setClientIP($this->getClientIP());
         $debugBarHolderEntities->setRequestMethod($this->getRequestMethod());
         $debugBarHolderEntities->setRequestPost($this->getRequestPost());
@@ -73,12 +94,19 @@ final class DebugBarTracking
     }
 
     /**
-     * @return false|string
+     * @param OutputDecoratorRenderTypes|null $decorateType
+     * @return string
      */
-    public function render()
+    public function render(OutputDecoratorRenderTypes $decorateType = null): string
     {
         $outputDecorator = new OutputDecorator($this->collectData());
-        return $outputDecorator->decorate(OutputDecoratorRenderTypes::DECORATE_HTML());
+
+        $decorate = OutputDecoratorRenderTypes::DECORATE_HTML();
+        if(!empty($decorateType)) {
+            $decorate = $decorateType;
+        }
+
+        return $outputDecorator->decorate($decorate);
     }
 
     /**
@@ -129,9 +157,33 @@ final class DebugBarTracking
     }
 
     /**
+     * @return array[]
+     */
+    private function getDispatchResult(): array
+    {
+        return $this->dispatch;
+    }
+
+    /**
+     * @param array[] $dispatch
+     */
+    public function setDispatchResult(array $dispatch)
+    {
+        $this->dispatch = $dispatch;
+    }
+
+    /**
+     * @return array[]
+     */
+    private function getSql(): array
+    {
+        return $this->profiler->getProfileData();
+    }
+
+    /**
      * @param ProfilerTypes $type
      * @param $profiler
-     * @throws Exception
+     * @throws \Exception
      */
     public function setSqlProfilerDriver(ProfilerTypes $type, $profiler)
     {
@@ -152,17 +204,9 @@ final class DebugBarTracking
     /**
      * @return array[]
      */
-    private function getSql(): array
-    {
-        return $this->profiler->getProfileData();
-    }
-
-    /**
-     * @return array[]
-     */
     private function getUser(): array
     {
-        return array_merge(['is_logged_in' => $_SESSION['isLoggedIn']] , $_SESSION['user']);
+        return empty($_SESSION) ? $_SESSION : array_merge(['is_logged_in' => $_SESSION['isLoggedIn']] , $_SESSION['user']);
     }
 
     /**
